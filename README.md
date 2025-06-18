@@ -334,3 +334,49 @@ Program ini dirancang untuk mengklasifikasikan jenis sampah untuk daur ulang men
   - **`plt.savefig('/content/drive/MyDrive/confusion_matrix.png')`**: Menyimpan heatmap.
   - **`plt.show()`**: Menampilkan heatmap.
   - **`print("\nClassification Report:")`, `print(classification_report(...))`**: Menampilkan laporan dengan nama kelas.
+
+---
+ 
+## Cara Eksekusi `trash_classifier.py` untuk keperluan Aplikasi Web
+### Langkah 1: Instalasi Dependensi
+- **Apa yang Dilakukan**: Langkah ini melibatkan penginstalan alat-alat tambahan yang diperlukan oleh program untuk memproses gambar dan menjalankan aplikasi web.
+- **Cara Melakukannya**:
+  1. Buka Command Prompt di komputer (tekan tombol Windows + R, ketik `cmd`, lalu tekan Enter).
+  2. Pastikan berada di direktori kerja dengan mengetik:
+     ```
+     cd [direktori kerja]
+     ```
+     lalu tekan Enter.
+  3. Ketik perintah berikut dan tekan Enter untuk menginstal Streamlit:
+     ```
+     pip install streamlit
+     ```
+  4. Ketik perintah berikut dan tekan Enter untuk menginstal TensorFlow:
+     ```
+     pip install tensorflow
+     ```
+  5. Ketik perintah berikut dan tekan Enter untuk menginstal NumPy:
+     ```
+     pip install numpy
+     ```
+  6. Tunggu hingga proses instalasi masing-masing paket selesai. Ini mungkin memakan waktu beberapa menit tergantung pada kecepatan internet.
+  7. Verifikasi instalasi dengan menjalankan perintah berikut satu per satu dan periksa apakah muncul nomor versi:
+     ```
+     python -c "import streamlit; print(streamlit.__version__)"
+     python -c "import tensorflow as tf; print(tf.__version__)"
+     python -c "import numpy as np; print(np.__version__)"
+     ```
+     Output yang diharapkan: (contoh: `1.29.0` untuk NumPy, `2.16.1` untuk TensorFlow).
+
+### Langkah 2: Eksekusi File
+- **Apa yang Dilakukan**: Langkah ini memulai aplikasi web untuk mengklasifikasikan jenis sampah berdasarkan gambar yang diunggah.
+- **Cara Melakukannya**:
+  1. Di Command Prompt yang sudah terbuka, pastikan masih berada di direktori kerja.
+  2. Ketik perintah berikut dan tekan Enter:
+     ```
+     streamlit run trash_classifier.py
+     ```
+  3. Tunggu beberapa detik hingga Command Prompt menampilkan pesan bahwa server telah dimulai, biasanya dengan URL seperti `http://localhost:8501`.
+  4. Buka browser (seperti Chrome atau Firefox) dan ketik `http://localhost:8501` di bilah alamat, lalu tekan Enter.
+  5. Halaman web akan muncul dengan judul "Trash Classifier" dan area untuk mengunggah gambar. Seret gambar (misalnya, `coca-cola.jpg`) dari folder yang sama ke area tersebut atau klik "Choose an image..." untuk memilih file.
+  6. Setelah gambar diunggah, aplikasi akan menampilkan hasil prediksi, seperti "Predicted Class: metal" dan "Confidence: 98.22%".
